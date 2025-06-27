@@ -17,6 +17,8 @@ Diese Anwendung wurde entwickelt, um Tennisturniere digital zu verwalten – von
 
 [Zur Anwendung](https://github.com/kloihoferL/code-portfolio/tree/main/Vue_Tennisturniererfassung)
 
-<img width="1295" alt="Bildschirmfoto 2025-06-26 um 20 22 49" src="https://github.com/user-attachments/assets/cf5e0c87-15cc-4cdb-a61b-d891f3aeaa75" />
-<img width="1293" alt="Bildschirmfoto 2025-06-26 um 20 22 12" src="https://github.com/user-attachments/assets/bdc8082e-d35f-4f86-b927-a6e4eb0d402f" />
-<img width="1277" alt="Bildschirmfoto 2025-06-26 um 20 22 42" src="https://github.com/user-attachments/assets/cf957ebd-d1cf-4d54-a301-c542b8df87a8" />
+<img src="https://github.com/user-attachments/assets/cf5e0c87-15cc-4cdb-a61b-d891f3aeaa75" width="600" />
+
+<img src="https://github.com/user-attachments/assets/bdc8082e-d35f-4f86-b927-a6e4eb0d402f" width="600" />
+
+<img src="https://github.com/user-attachments/assets/cf957ebd-d1cf-4d54-a301-c542b8df87a8" width="600" />
