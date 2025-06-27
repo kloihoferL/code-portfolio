@@ -16,6 +16,12 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
+## setup Pocketbase
+```sh
+./pocketbase.exe serve
+```
+
+
 ### Compile and Hot-Reload for Development
 
 ```sh
