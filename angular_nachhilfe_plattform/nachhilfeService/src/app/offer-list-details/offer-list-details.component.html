@@ -1,0 +1,148 @@
+@let o = offer();
+
+<div class="max-w-5xl mx-auto mt-6 px-4">
+  <button [routerLink]="'/angebote'" class="text-cyan-700 hover:underline text-sm font-medium">
+    <i class="fa fa-arrow-left mr-1"></i> Zurück zu den Angeboten
+  </button>
+</div>
+
+@if (o) {
+  <div class="max-w-5xl mx-auto p-8 mt-4 bg-white rounded-xl shadow-lg space-y-8">
+
+    <h1 class="text-3xl font-bold text-gray-900">{{ o.name }}</h1>
+
+    <p class="text-gray-700 text-lg leading-relaxed">{{ o.description }}</p>
+
+    <div class="flex items-start gap-5">
+      <div class="text-cyan-600 pt-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+        </svg>
+      </div>
+      <div>
+        <p class="text-gray-800 font-medium">Fach: <span class="font-semibold">{{ o.course?.name }}</span></p>
+        @if (o.course?.subcourses?.length) {
+          <p class="mt-2 text-gray-800 font-medium">Unterthemen:</p>
+          <ul class="list-disc list-inside text-gray-600 text-sm">
+            @for (sub of o.course.subcourses; track sub.id) {
+              <li>{{ sub.name }}</li>
+            }
+          </ul>
+        }
+      </div>
+    </div>
+
+    <div class="flex items-start gap-5">
+      <div class="text-cyan-600 pt-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a8.25 8.25 0 0115 0" />
+        </svg>
+      </div>
+      <div>
+        <p class="text-gray-800 font-medium">Anbieter:</p>
+        <p class="text-gray-900 font-semibold">{{ o.giver?.name }}</p>
+        <p class="text-sm text-gray-600"><strong>Ausbildung: </strong> {{ o.giver?.ausbildung }}</p>
+        <p class="text-sm text-gray-500"><strong>E-mail: </strong> {{ o.giver?.email }}</p>
+      </div>
+    </div>
+
+    @if (o.comment) {
+      <div>
+        <p class="text-gray-800 font-medium">Kommentar:</p>
+        <p class="text-gray-600">{{ o.comment }}</p>
+      </div>
+    }
+
+
+    <!-- Termine -->
+    @if (o.slots?.length) {
+      <div class="flex items-start gap-5">
+        <div class="text-cyan-600 pt-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+          </svg>
+        </div>
+        <div>
+          <p class="text-gray-800 font-medium">Verfügbare Termine:</p>
+          <ul class="list-disc list-inside text-gray-600 text-sm">
+            @for (slot of o.slots; track slot.id) {
+              @if (!slot.is_booked) {
+                <li>{{ slot.start_time | date:'short' }} – {{ slot.end_time | date:'short' }}</li>
+              }
+
+            }
+          </ul><br>
+          <p class="text-gray-600 text-sm">Sollte kein passender Termin vorhanden sein, gibt es die Möglichkeit eine Anfrage an den/die Anbieter:in für einen anderen Termin zu senden!</p>
+        </div>
+      </div>
+    }
+
+    <!-- Buchungsbutton -->
+    <div class="pt-4">
+      <button (click)="openModal()"class="px-5 py-2 bg-gradient-to-r from-cyan-600 to-teal-500 text-white rounded hover:opacity-90 transition font-semibold">
+        <i class="fa fa-calendar-check mr-2"></i> Nachhilfe buchen
+      </button>
+    </div>
+  </div>
+
+
+
+  <!-- Modal -->
+  @if (showModal() ) {
+    <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+      <div class="bg-white rounded-2xl p-6 w-full max-w-lg shadow-xl">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Nachhilfe buchen</h2>
+        <label class="block text-gray-700 font-medium mb-2">Verfügbare Termine:</label>
+        <div class="space-y-2 mb-4">
+          @for (slot of o.slots; track slot.id) {
+            @if (!slot.is_booked) {
+              <div class="flex items-center">
+                <input
+                  type="radio"
+                  [id]="'slot-' + slot.id"
+                  [value]="slot.id"
+                  [checked]="selectedSlot()?.id === slot.id"
+                  (change)="selectedSlot.set(slot)"
+                  name="selectedSlot"
+                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
+                >
+                <label
+                  [for]="'slot-' + slot.id"
+                  class="ms-2 text-sm font-medium text-black"
+                >
+                  {{ slot.start_time | date:'short' }} – {{ slot.end_time | date:'short' }}
+                </label>
+              </div>
+            }
+
+          }
+        </div>
+        <div>
+          <p class="text-lg font-bold mb-1">Kein passender Termin dabei?</p>
+          <p class="text-sm mb-4"> Wähle hier dein Wunschdatum und Uhrzeit, und schicke eine Anfrage an den/die Geber:in</p>
+          <label class="block text-gray-700 text-sm mb-2">Gewünschtes Datum und Uhrzeit:</label>
+          <input type="datetime-local" class="border border-gray-300 rounded-lg p-2 mb-1"
+                 (input)="onAppointmentChange($event)"/>
+          <label class="block text-gray-700 text-sm mt-2">Optionale Nachricht</label>
+          <input type="text" class="border border-gray-300 rounded-lg p-2 mt-2 mb-3 w-full" placeholder="Optionale Nachricht"
+                 (input)="onMessageChange($event)"/>
+          <button (click)="getAppointmentData()" class="bg-gray-200 p-3 hover:bg-gray-300 rounded ">Anfrage schicken</button>
+
+        </div>
+
+        <div class="flex justify-end gap-3 mt-6">
+          <button (click)="closeModal()" class="text-gray-500 hover:underline">Abbrechen</button>
+          <!--<button (click)="getbookingData()">Buchen</button>-->
+          <button (click)="getbookingData()" class="px-5 py-2 bg-gradient-to-r from-cyan-600 to-teal-500 text-white rounded hover:opacity-90 transition font-semibold">
+            <i class="fa fa-calendar-check mr-2"></i> Buchen
+          </button>
+        </div>
+      </div>
+    </div>
+
+  }
+
+
+
+
+}
