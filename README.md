@@ -3,7 +3,7 @@
 👋 Willkommen in meinem Code-Portfolio!
 Hier findest du verschiedene Projekte, die ich mit unterschiedlichen Technologien umgesetzt habe. Die Repositories zeigen meine praktische Erfahrung mit modernen Webtechnologien.
 
-# 💻 Nachhilfe Plattform.
+# 💻 Nachhilfe Plattform
 Eine Webanwendung zur Verwaltung von Nachhilfeangeboten und Buchungen. Das Backend basiert auf Laravel, das Frontend wurde mit Angular entwickelt. Ziel war eine moderne, benutzerfreundliche Plattform für Schüler und Nachhilfelehrer.  
 [Zum Backend](https://github.com/kloihoferL/code-portfolio/tree/main/nachhilfeService)  
 [Zum Frontend](https://github.com/kloihoferL/code-portfolio/tree/main/angular_nachhilfe_plattform/nachhilfeService)
