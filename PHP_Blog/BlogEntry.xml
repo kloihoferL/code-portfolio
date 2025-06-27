@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blogEntries>
+    <entry>
+        <title>Erster Eintrag vom XML-File</title>
+        <userid>2</userid>
+        <noteText>JUHUUU ein Admin hat mich importiert!</noteText>
+        <state>normal</state>
+        <createdOn>2024-06-08</createdOn>
+        <lastEdit>2024-06-08</lastEdit>
+        <lastEditUser>2</lastEditUser>
+    </entry>
+    <entry>
+        <title>Zweiter Eintrag vom XML-File</title>
+        <userid>2</userid>
+        <noteText>Dies ist der Text des zweiten Eintrags. Ebenfalls vom XML importiert</noteText>
+        <state>highlighted</state>
+        <createdOn>2024-06-09</createdOn>
+        <lastEdit>2024-06-09</lastEdit>
+        <lastEditUser>2</lastEditUser>
+    </entry>
+    <entry>
+        <title>Dritter Eintrag vpm XML-File</title>
+        <userid>11</userid>
+        <noteText>JUHUUU ein Admin hat mich importiert!</noteText>
+        <state>normal</state>
+        <createdOn>2024-06-10</createdOn>
+        <lastEdit>2024-06-10</lastEdit>
+        <lastEditUser>13</lastEditUser>
+    </entry>
+    <entry>
+        <title>Vierter Eintrag vpm XML-File</title>
+        <userid>11</userid>
+        <noteText>JUHUUU ein Admin hat mich importiert! Ich bin der vierte Eintrag</noteText>
+        <state>normal</state>
+        <createdOn>2024-06-10</createdOn>
+        <lastEdit>2024-06-10</lastEdit>
+        <lastEditUser>13</lastEditUser>
+    </entry>
+</blogEntries>
