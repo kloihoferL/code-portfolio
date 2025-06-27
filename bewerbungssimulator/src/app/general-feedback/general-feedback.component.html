@@ -1,0 +1,27 @@
+<div class="max-w-4xl mx-auto mt-10 bg-white overflow-hidden">
+  <div class="p-6 bg-gray-100 rounded-xl">
+    <h2 class="text-lg font-semibold mb-4">Feedback</h2>
+
+    <div class="bg-white p-4 mb-4 rounded-lg shadow">
+      <div class="p-4 mb-4">
+        <h3 class="font-bold mb-2 text-green-500">👍 Das hast du gut gemacht</h3>
+        <p>{{ interview.feedback.goodPoints[0].description }}</p>
+      </div>
+
+
+      <div class="p-4 mb-4">
+        <h3 class="font-bold mb-2 text-yellow-500">💡 Das kannst du noch verbessern</h3>
+        <p>{{ interview.feedback.improvementPoints[0].description }}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Back Button -->
+  <div class="p-6">
+    <button [routerLink]="'/home'" class="bg-[#BC091B] text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">
+      Zurück zum persönlichen Bereich
+    </button>
+  </div>
+</div>
+

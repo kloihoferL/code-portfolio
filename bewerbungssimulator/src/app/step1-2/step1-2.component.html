@@ -1,0 +1,87 @@
+<div class="p-6 max-w-4xl mx-auto space-y-8 bg-white shadow-lg rounded-xl">
+
+  <!-- Zurück-Button -->
+  <button type="button" [routerLink]="['/home/']" class="cursor-pointer flex justify-between mb-4 items-center w-full p-1">
+    <i class="py-2 px-3 rounded-xl text-lg bg-gray-300 border-gray-600 fas fa-chevron-left"></i>
+  </button>
+
+  <!-- Anzahl der Fragen -->
+  <div>
+    <h2 class="text-2xl font-bold mb-3 text-gray-800">Anzahl der Fragen</h2>
+    <p class="mb-3 text-sm text-gray-600">Für ein sinnvolles Gespräch können zwischen 3 und 10 Fragen ausgewählt werden.</p>
+
+    <div class="flex items-center gap-3">
+      <button
+        class="w-9 h-9 flex items-center justify-center text-xl font-bold border rounded-full text-gray-700 {{counterQuestion <= 3?'cursor-not-allowed':'hover:bg-gray-100'}}"
+        (click)="counterQuestionMinus()">−</button>
+
+      <span class="w-10 text-center text-lg font-semibold text-gray-800">
+        {{ counterQuestion }}
+      </span>
+
+      <button
+        class="w-9 h-9 flex items-center justify-center text-xl font-bold border rounded-full text-gray-700 {{counterQuestion >= 10?'cursor-not-allowed':'hover:bg-gray-100'}}"
+        (click)="counterQuestionAdd()">+</button>
+    </div>
+  </div>
+
+  <!-- Kategorie wählen -->
+  <div>
+    <h2 class="text-2xl font-bold mb-3 text-gray-800">Kategorie wählen</h2>
+    <div class="space-y-3">
+      <label class="flex items-center gap-3 cursor-pointer">
+        <input
+          type="radio" name="kategorie" value="allgemeine fragen" class="accent-red-600"
+          [checked]="selectedCategory === 'allgemeine fragen'" (change)="setCategory('allgemeine fragen')" />
+        <span class="text-gray-700">Allgemeine Fragen</span>
+      </label>
+
+      <label class="flex items-center gap-3 cursor-pointer">
+        <input
+          type="radio" name="kategorie" value="jobspezifische fragen" class="accent-red-600"
+          [checked]="selectedCategory === 'jobspezifische fragen'" (change)="setCategory('jobspezifische fragen')" />
+        <span class="text-gray-700">Jobspezifische Fragen</span>
+      </label>
+
+      <label class="flex items-center gap-3 cursor-pointer">
+        <input
+          type="radio" name="kategorie" value="persoenliche fragen" class="accent-red-600"
+          [checked]="selectedCategory === 'persoenliche fragen'" (change)="setCategory('persoenliche fragen')" />
+        <span class="text-gray-700">Persönliche Fragen</span>
+      </label>
+
+      <label class="flex items-center gap-3 cursor-pointer">
+        <input
+          type="radio" name="kategorie" value="alle fragen" class="accent-red-600"
+          [checked]="selectedCategory === 'alle fragen'" (change)="setCategory('alle fragen')" />
+        <span class="text-gray-700">Alle Kategorien</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Nur anzeigen, wenn Kategorie "jobspezifische fragen" -->
+  @if (selectedCategory === 'jobspezifische fragen') {
+    <input
+      type="text"
+      placeholder="Jobtitel eingeben"
+      class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+      [ngModel]="config.jobTitle()"
+      (ngModelChange)="updateJobTitle($event)" />
+  }
+
+
+  <!-- Start Button -->
+  <div>
+    <button
+      [routerLink]="['/chat/']"
+      class="bg-red-700 hover:bg-red-800 transition duration-150 text-white font-semibold py-3 px-6 rounded-xl w-full shadow-md"
+      (click)="getCounterInConsole()">
+      Gespräch starten
+    </button>
+  </div>
+</div>
+
+
+
+
+

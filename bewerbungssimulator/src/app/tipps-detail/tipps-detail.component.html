@@ -1,0 +1,33 @@
+<div class="p-6 max-w-4xl mx-auto space-y-8 bg-white shadow-lg rounded-xl mt-4 border-gray-200">
+
+<button type="button" [routerLink]="['/home']" class="cursor-pointer flex justify-between mb-4  items-center w-full p-1">
+    <i class="py-2 px-3 rounded-xl text-lg bg-gray-300 border-gray-600 fas fa-chevron-left"></i>
+</button>
+<h1 class="text-3xl font-bold">Tipps für {{ this.status }} Personen</h1>
+
+
+@for(tipp of this.tipps ; let i = $index; track tipp) {
+  <div class="border border-gray-200 border-2 shadow-lg rounded-xl my-4">
+    <button (click)="toggle(i)" class="w-full text-left p-4  flex justify-between items-center">
+      <div>
+        <div>
+          <h3 class="text-lg text-[#b40019] font-bold">{{ tipp.titel }}</h3>
+        </div>
+        <div class="mt-1">{{ tipp.einleitung }}</div>
+      </div>
+      <span class="ml-4">
+        <i class="fas" [ngClass]="{ 'fa-chevron-down': !opened[i], 'fa-chevron-up': opened[i] }"></i>
+      </span>
+    </button>
+    @if(opened[i]) {
+    <div  class="px-4 pt-1 pb-4 bg-white rounded-xl shadow-lg">
+      <ul class="list-disc pl-6">
+        @for(beschreibung of tipp.beschreibung; track beschreibung) {
+          <li>{{ beschreibung }}</li>
+        }
+      </ul>
+    </div>
+    }
+  </div>
+}
+</div>

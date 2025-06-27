@@ -1,0 +1,7 @@
+{
+  "questions": [
+    { "id": 0, "frage": "Erzählen Sie mir etwas über sich." },
+    { "id": 1, "frage": "Was sind Ihre Stärken?" },
+    { "id": 2, "frage": "Warum möchten Sie bei uns arbeiten?" }
+  ]
+}

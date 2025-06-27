@@ -1,0 +1,86 @@
+<div class="p-6 max-w-4xl mx-auto space-y-8 bg-white shadow-lg rounded-xl mt-4 border-gray-200">
+
+  <button type="button" [routerLink]="['/home/']" class="cursor-pointer flex justify-between mb-4  items-center w-full p-1">
+    <i class="py-2 px-3 rounded-xl text-lg bg-gray-300 border-gray-600 fas fa-chevron-left"></i>
+  </button>
+
+  <h2 class="text-2xl fa-bold">Einstellungen</h2>
+  <p class="text-sm text-gray-700 mb-6">
+    Hier kannst du persönliche Daten wie deinen Lebenslauf oder weitere Zeugnisse hochladen. Dadurch werden deine Bewerbungsgespräche personalisierter. Du kannst gerne persönliche Daten wie deinen Namen, Geburtsdatum oder Adresse auch weglassen.
+  </p>
+
+  <!-- Falls noch kein Dokument hochgeladen wurde -->
+  <div *ngIf="!documentUploaded" class="mb-6">
+    <h3 class="font-semibold mb-2">Lebenslauf hochladen (optional)</h3>
+    <p class="text-sm text-gray-600 mb-4">Bitte lade deinen Lebenslauf hoch, um ihn bei deinen Bewerbungsgesprächen zu verwenden.</p>
+
+    <div class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center bg-gray-50 hover:bg-gray-100 transition cursor-pointer">
+      <p class="mb-2 text-gray-500">Ziehe deinen Lebenslauf hierher oder wähle eine Datei aus.</p>
+      <p class="text-xs text-gray-400 mb-4">(Erlaubte Dateiformate: .pdf, .doc, .docx)</p>
+      <input type="file" class="hidden" id="resume-upload" (change)="onFileSelected($event)" />
+      <label for="resume-upload" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-xl hover:bg-black cursor-pointer">
+        Datei auswählen
+      </label>
+    </div>
+  </div>
+
+  <!-- Falls ein Dokument hochgeladen wurde -->
+  <div *ngIf="documentUploaded" class="mb-6">
+    <h3 class="font-semibold mb-2">Hochgeladener Lebenslauf</h3>
+
+    <div class="flex items-center justify-between border border-gray-300 rounded-xl p-4 bg-gray-50">
+      <div class="flex items-center">
+        <span class="text-gray-600 mr-2">Dokument:</span>
+        <span class="text-gray-600">{{ documentName }}</span>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <label for="resume-edit-upload" class="cursor-pointer text-black hover:text-gray-600" title="Erneut hochladen">
+          <i class="fas fa-edit mr-3"></i>
+        </label>
+        <input type="file" class="hidden" id="resume-edit-upload" (change)="onFileSelected($event)" />
+
+        <button (click)="deleteDocument()" class="text-black hover:text-red-800" title="Löschen">
+          <i class="fas fa-trash mr-3"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Weitere Dateien Upload -->
+  <div>
+    <h3 class="font-semibold mb-2">Weitere Dateien hochladen (optional)</h3>
+    <p class="text-sm text-gray-600 mb-4">Zertifikate, Zeugnisse, Urkunden,...</p>
+
+    <div *ngIf="documentFilesUploaded" class="mt-4">
+      <p class=" font-medium">Hochgeladene Dateien:</p>
+      <ul class=" text-gray-700 mt-2 list-disc list-inside">
+        <div *ngFor="let name of documentNames" class="flex items-center justify-between border border-gray-300 rounded-xl p-4 bg-gray-50 mb-4">
+          <div class="flex items-center">
+            <span class="text-gray-600 mr-2">Dokument:</span>
+            <span>{{ name }}</span>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <button (click)="deleteDocumentFile(name)" class="text-black hover:text-red-800" title="Löschen">
+              <i class="fas fa-trash mr-3"></i>
+            </button>
+          </div>
+        </div>
+
+      </ul>
+    </div>
+
+    <div
+      class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center bg-gray-50 hover:bg-gray-100 transition cursor-pointer"
+    >
+      <p class="mb-2 text-gray-500">Ziehe deine Dateien hierher oder wähle sie aus.</p>
+      <p class="text-xs text-gray-400 mb-4">(Erlaubte Dateiformate: .pdf, .doc, .docx)</p>
+      <input type="file" multiple class="hidden" id="other-files-upload" (change)="onOtherFilesSelected($event)" />
+      <label for="other-files-upload" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-xl hover:bg-black cursor-pointer">
+        Datei auswählen
+      </label>
+    </div>
+
+  </div>
+</div>

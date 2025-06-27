@@ -1,0 +1,73 @@
+<!-- interview-feedback.component.html -->
+
+<div class="max-w-4xl mx-auto mt-10 bg-white  overflow-hidden">
+  <!-- Header -->
+  <button type="button" [routerLink]="['/home/']" class="cursor-pointer flex justify-between mb-4  items-center w-full p-1">
+    <i class="py-2 px-3 rounded-xl text-lg bg-gray-300 border-gray-600 fas fa-chevron-left"></i>
+  </button>
+
+  <div class="bg-[#BC091B] text-white p-4 rounded-t-xl">
+    <h1 class="text-xl font-bold">{{ interview.title }}</h1>
+    <div class="flex space-x-4 mt-2">
+      <div class="bg-white text-black rounded-lg px-3 py-1 text-sm">Datum<br>{{ interview.date }}</div>
+      <div class="bg-white text-black rounded-lg px-3 py-1 text-sm">Dauer<br>{{ interview.duration }}</div>
+      <div class="bg-white text-black rounded-lg px-3 py-1 text-sm break-words break-all ">
+        Kategorie<br>{{selectedCategory}}
+      </div>
+    </div>
+  </div>
+
+  <!-- Fragen & Antworten -->
+  <div class="p-6 bg-gray-100">
+    <h2 class="text-lg font-semibold mb-4">Fragen & Deine Antworten</h2>
+    @for (question of interview.questions; track question) {
+      <div class="bg-white p-4 mb-4 rounded-lg shadow">
+        <div class="flex justify-between items-center cursor-pointer" (click)="toggleQuestion(question.id)">
+          <h3 class="font-bold text-[#BC091B]">{{ question.title }}</h3>
+          <span class="ml-4 text-xl">
+            <i class="fas" [ngClass]="{ 'fa-chevron-down': !question.isOpen, 'fa-chevron-up': question.isOpen }"></i>
+          </span>
+        </div>
+        @if (question.isOpen) {
+          <div class="mt-2">
+            <p class="mb-2">{{ question.question }}</p>
+            <div class="font-bold mb-1">Deine Antwort</div>
+            <div class="bg-gray-50 p-3 rounded-lg">{{ question.answer }}</div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  <!-- Feedback -->
+  <div class="p-6 bg-gray-100 rounded-b-xl">
+    <h2 class="text-lg font-semibold mb-4">Feedback</h2>
+
+    <div class="bg-white p-4 mb-4 rounded-lg shadow">
+      <div class="p-4 mb-4">
+        <h3 class="font-bold mb-2">Allgemein</h3>
+        <p>{{ interview.feedback.general }}</p>
+      </div>
+
+      <div class="p-4 mb-4">
+        <h3 class="font-bold mb-2 text-green-500">👍️ Das hast du gut gemacht</h3>
+        <p>{{ interview.feedback.goodPoints[0].description }}</p>
+      </div>
+
+
+      <div class="p-4 mb-4">
+        <h3 class="font-bold mb-2 text-yellow-500">💡 Das kannst du noch verbessern</h3>
+        <p>{{ interview.feedback.improvementPoints[0].description }}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Back Button -->
+  <div class="p-6">
+    <button [routerLink]="'/home'" class="bg-[#BC091B] text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">
+      Zurück zur Übersicht
+    </button>
+  </div>
+</div>
+

@@ -1,0 +1,92 @@
+<div class="p-6 max-w-4xl mx-auto space-y-8 bg-white shadow-lg rounded-xl mt-4 border-gray-200">
+
+  <div class="flex items-center justify-between gap-2">
+    <div class="flex items-center gap-2">
+      <i class="fas fa-user text-4xl text-[#b40019] pe-2"></i>
+      <h1 class="text-3xl font-bold">Hallo, Susanne Musterfrau!</h1>
+    </div>
+    <button type="button" [routerLink]="['/settings']" class="cursor-pointer flex items-center p-2 bg-gray-300 border-gray-600 rounded-xl">
+      <i class="fas fa-cog text-lg text-gray-800"></i>
+    </button>
+  </div>
+
+
+  <div>
+    <h2 class="text-2xl fa-bold">Erklärvideo zum Bewerbungsgespräch</h2>
+    <button type="button" class="px-4 py-2 bg-[#b40019] mt-2 text-white rounded-xl hover:bg-gray-600 transition cursor-pointer" (click)="startVideo()">
+      Video starten
+    </button>
+    @if(isModalOpen) {
+    <div class="fixed inset-0 flex justify-center items-center bg-gray-200 bg-opacity-50">
+      <div class="bg-gray-200 p-4 bg-opacity-50 rounded-lg w-full max-w-3xl">
+        <button (click)="closeModal()" class="cursor-pointer absolute top-2 right-2 text-white text-xl"><i class="fas fa-close text-black p-2"></i></button>
+        <div class="relative pt-[56.25%] rounded-xl">
+          <video [src]="'assets/Simulator.mp4'" class="absolute top-0 left-0 w-full h-full rounded-xl" controls autoplay></video>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  <div>
+    <h2 class="text-2xl pt-6 mt-6">Tipps zu Bewerbungsgesprächen</h2>
+    <div class="cursor-pointer shadow-lg rounded-xl mt-4 border-gray-200 rounded-xl text-lg border-2 w-full p-2 my-2">
+      <button type="button" [routerLink]="['/tipps/', 'Vor dem Gespräch']" class="cursor-pointer flex justify-between items-center w-full p-1">
+        <span>Vor dem Gespräch</span>
+        <i class="fas fa-up-right-from-square px-2"></i>
+      </button>
+    </div>
+    <div class="cursor-pointer shadow-lg rounded-xl mt-4 border-gray-200 text-lg rounded border-2 w-full p-2 my-2">
+      <button type="button" [routerLink]="['/tipps/', 'Während dem Gespräch']" class="cursor-pointer flex justify-between items-center w-full p-1">
+        <span>Während dem Gespräch</span>
+        <i class="fas fa-up-right-from-square px-2"></i>
+      </button>
+    </div>
+    <div class="cursor-pointer shadow-lg rounded-xl mt-4 border-gray-200 text-lg rounded border-2 w-full p-2 my-2">
+      <button type="button" [routerLink]="['/tipps/', 'Nach dem Gespräch']" class="cursor-pointer flex justify-between items-center w-full p-1">
+        <span>Nach dem Gespräch</span>
+        <i class="fas fa-up-right-from-square px-2"></i>
+      </button>
+    </div>
+  </div>
+
+  <div>
+    <h2 class="text-2xl pt-6 mt-6">Beginne ein Bewerbungsgespräch</h2>
+    <p class="pb-5">Für eine optimale Nutzung lade noch deinen Lebenslauf hoch (optional)</p>
+    <button type="button" [routerLink]="['/settings/']" class="px-4 py-2 bg-[#CFCFCF] mt-2  text-black rounded-xl rounded hover:bg-gray-600 transition cursor-pointer">
+      Dateien hochladen
+    </button>
+    <br/>
+    <button type="button" [routerLink]="['/simulator/']" class="px-4 py-2 bg-[#b40019] mt-2 text-white rounded-xl rounded hover:bg-gray-600 transition cursor-pointer">
+      Neues Bewerbungsgespräch starten
+    </button>
+  </div>
+
+  <div>
+    <h2 class="text-2xl pt-6 mt-6">Bisherige Bewerbungsgespräche</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+      <div class="p-4 bg-white border border-gray-300 rounded-xl shadow">
+        <h3 class="font-semibold text-lg text-gray-900">Bewerbungsgespräch 1</h3>
+        <p class="text-sm text-gray-600 mt-1">Datum: 01.04.2025</p>
+        <p class="text-sm text-gray-600">Dauer: 21 Minuten</p>
+        <button type="button" [routerLink]="['/feedback/']" class="px-4 py-2 bg-[#b40019] mt-2 text-white rounded-xl rounded hover:bg-gray-600 transition cursor-pointer">
+          Zum Feedback
+        </button>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <div>
+    <h2 class="text-2xl pt-6 mt-6">Allgemeines Feedback</h2>
+    <p>Hier kannst du dein allgemeines Feedback von allen Bewerbungsgesprächen einsehen. </p>
+    <button type="button" [routerLink]="['/general-feedback/']" class="px-4 py-2 bg-[#b40019] mt-2 text-white rounded-xl rounded hover:bg-gray-600 transition cursor-pointer">
+      Feedback einsehen
+    </button>
+  </div>
+
+
+
+</div>

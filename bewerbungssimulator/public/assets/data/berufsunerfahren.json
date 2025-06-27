@@ -1,0 +1,27 @@
+[
+  {
+    "titel": "Vor dem Gespräch",
+    "einleitung": "Hier erfährst du alles über die Vorbereitung auf dein Bewerbungsgespräch.",
+    "beschreibung": [
+      "Informiere dich gründlich über das Unternehmen (z. B. Website, Presse, Social Media).",
+      "Lies die Stellenanzeige genau und überlege, wie deine Fähigkeiten dazu passen."
+    ]
+  },
+  {
+    "titel": "Während des Gesprächs",
+    "einleitung": "Während des Gesprächs ist es wichtig, einen positiven Eindruck zu hinterlassen.",
+    "beschreibung": [
+      "Sei pünktlich und erscheine mit einem Lächeln.",
+      "Achte auf deine Körpersprache: sitze aufrecht, halte Blickkontakt und vermeide Nervosität.",
+      "Höre aktiv zu und lass den Interviewer ausreden, bevor du antwortest."
+    ]
+  },
+  {
+    "titel": "Nach dem Gespräch",
+    "einleitung": "Nach dem Gespräch gibt es einige wichtige Schritte, die du nicht vergessen solltest.",
+    "beschreibung": [
+      "Schicke innerhalb von 24 Stunden eine Dankes-E-Mail, um deine Wertschätzung zu zeigen.",
+      "Reflektiere das Gespräch: Was lief gut? Was kannst du beim nächsten Mal besser machen?"
+    ]
+  }
+]
