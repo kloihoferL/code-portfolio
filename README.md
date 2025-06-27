@@ -1,7 +1,7 @@
 # code-portfolio
 
 👋 Willkommen in meinem Code-Portfolio!
-Hier findest du verschiedene Projekte, die ich in unterschiedlichen Technologien umgesetzt habe. Die Repositories zeigen meine Lernreise und praktische Erfahrung mit modernen Webtechnologien.
+Hier findest du verschiedene Projekte, die ich mit unterschiedlichen Technologien umgesetzt habe. Die Repositories zeigen meine praktische Erfahrung mit modernen Webtechnologien.
 
 # 💻 Nachhilfe Plattform.
 Eine Webanwendung zur Verwaltung von Nachhilfeangeboten und Buchungen. Das Backend basiert auf Laravel, das Frontend wurde mit Angular entwickelt. Ziel war eine moderne, benutzerfreundliche Plattform für Schüler und Nachhilfelehrer.  
@@ -10,7 +10,6 @@ Eine Webanwendung zur Verwaltung von Nachhilfeangeboten und Buchungen. Das Backe
 
 Das folgende Bild zeigt die Statseite der Anwendung:  
 <img width="600" alt="Bildschirmfoto 2025-06-26 um 20 25 53" src="https://github.com/user-attachments/assets/55236180-6f68-4eca-8a4a-18b190b2c931" />
-
 
 # 🎾 Tennis Turnier Verwaltungs Anwendung
 Diese Anwendung wurde entwickelt, um Tennisturniere digital zu verwalten – von der Anmeldung bis zur Ergebnis-Erfassung. Das Projekt basiert auf Vue.js für das Frontend, während PocketBase als Datenbank-Backend dient.
@@ -31,9 +30,16 @@ Das Frontend wurde mit Angular realisiert.
 Meine Hauptaufgabe:
 Ich war für die Entwicklung der Chat-Komponente zuständig. Diese ermöglicht die Darstellung der vom LLM generierten Fragen und übermittelt die Antworten der Nutzer:innen zurück an das Modell zur weiteren Verarbeitung.
 
-[Zum Prototyp]([https://github.com/kloihoferL/code-portfolio/tree/main/Vue_Tennisturniererfassung](https://github.com/kloihoferL/code-portfolio/tree/main/bewerbungssimulator)
+[Zum Prototyp](https://github.com/kloihoferL/code-portfolio/tree/main/bewerbungssimulator)
+
+
 
 # 📝 PHP Blog
+Das Blogsystem wurde mit PHP entwickelt und bietet eine benutzerfreundliche Plattform zum Verwalten und Veröffentlichen von Beiträgen.
+
+[Zum Blog](https://github.com/kloihoferL/code-portfolio/tree/main/PHP_Blog)
+
+
 
 
 
